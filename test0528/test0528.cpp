@@ -13,7 +13,7 @@ public:
 	void setvalue(int fe, int in);
 	void display();
 	CFeet add(CFeet & ojbk);
-	CFeet operator+(CFeet &ojbk);
+	CFeet operator-(CFeet &ojbk);
 };
 void CFeet::setvalue(int fe, int in)
 {
@@ -22,26 +22,31 @@ void CFeet::setvalue(int fe, int in)
 }
 void CFeet::display()
 {
+	if (inche < 0)
+	{
+		feet=feet - 1;
+		inche = 12+inche;
+	}
 	cout << feet << "Ó¢³ß" << inche << "Ó¢´ç" << endl;
 }
 CFeet CFeet::add(CFeet &ojbk)
 {
 	CFeet temp;
-	temp.setvalue(feet + ojbk.feet, inche + ojbk.inche);
+	temp.setvalue(feet-ojbk.feet, inche -ojbk.inche);
 	return temp;
 }
-CFeet CFeet::operator+(CFeet &ojbk)
+CFeet CFeet::operator-(CFeet &ojbk)
 {
 	CFeet temp;
-	temp.setvalue(feet + ojbk.feet, inche + ojbk.inche);
+	temp.setvalue(feet - ojbk.feet, inche - ojbk.inche);
 	return temp;
 }
 int main()
 {
 	CFeet a, b, c;
-	a.setvalue(10, 7);
-	b.setvalue(4, 5);
-	c = a + b;
+	a.setvalue(2, 1);
+	b.setvalue(1, 2);
+	c = a - b;
 	c.display();
     return 0;
 }
