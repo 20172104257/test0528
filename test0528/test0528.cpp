@@ -32,20 +32,30 @@ void CFeet::display()
 CFeet CFeet::add(CFeet &ojbk)
 {
 	CFeet temp;
+	if (feet < 0)
+	{
+		temp.setvalue(feet - ojbk.feet, inche + ojbk.inche);
+	}
+	else
 	temp.setvalue(feet-ojbk.feet, inche -ojbk.inche);
 	return temp;
 }
 CFeet CFeet::operator-(CFeet &ojbk)
 {
 	CFeet temp;
+	if (feet < 0)
+	{
+		temp.setvalue(feet - ojbk.feet, inche + ojbk.inche);
+	}
+	else
 	temp.setvalue(feet - ojbk.feet, inche - ojbk.inche);
 	return temp;
 }
 int main()
 {
 	CFeet a, b, c;
-	a.setvalue(2, 1);
-	b.setvalue(1, 2);
+	a.setvalue(-2,3);
+	b.setvalue(2,3);
 	c = a - b;
 	c.display();
     return 0;
